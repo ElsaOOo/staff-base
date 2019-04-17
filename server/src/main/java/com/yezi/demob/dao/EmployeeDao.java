@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date: 2019/4/16 23 02
  * @Description:
  */
-public interface EmployeeDao extends JpaRepository<Integer, Employee> {
+public interface EmployeeDao extends JpaRepository<Employee, Integer> {
 }

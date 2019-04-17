@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date: 2019/4/16 23 02
  * @Description:
  */
-public interface DepartmentDao extends JpaRepository<Integer, Department> {
+public interface DepartmentDao extends JpaRepository<Department, Integer> {
 }

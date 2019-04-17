@@ -1,5 +1,9 @@
 package com.yezi.demob.service;
 
+import com.yezi.demob.entity.Department;
+
+import java.util.List;
+
 /**
  * @Author: yezi
  * @Date: 2019/4/16 23 04
@@ -7,6 +11,7 @@ package com.yezi.demob.service;
  */
 public interface DepartmentService {
 
-    boolean addOrUpdateDepartment();
+    List<Department> getDepartList();
+    Department addOrUpdateDepartment(Department department);
     boolean deleteDepartment(int departId);
 }
