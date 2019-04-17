@@ -28,7 +28,10 @@ public class DepartmentServiceImplTest {
 
     @Test
     public void getDepartList() {
-
+        List<Department> departments = departmentService.getDepartList();
+        for (Department department: departments) {
+            System.out.println(department.toString());
+        }
     }
 
     @Test

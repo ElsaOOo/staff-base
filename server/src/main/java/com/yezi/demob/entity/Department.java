@@ -1,5 +1,6 @@
 package com.yezi.demob.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -29,7 +30,17 @@ public class Department {
     @Column(name = "d_desc")
     private String ddesc;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
     private Set<Employee> employees;
 
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", dName='" + dName + '\'' +
+                ", ddesc='" + ddesc + '\'' +
+                '}';
+    }
 }

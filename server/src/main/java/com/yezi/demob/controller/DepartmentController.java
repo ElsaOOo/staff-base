@@ -14,12 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2019/4/17 07 56
  * @Description:
  */
-@RestController(value = "/depart")
+@RestController
+@RequestMapping(value = "/depart")
 public class DepartmentController {
 
     @Autowired
     DepartmentService departmentService;
 
+    @RequestMapping(value = "/test", method = { RequestMethod.GET, RequestMethod.POST})
+    public OperationResult test() {
+        return OperationResult.ok("hello");
+    }
 
     @RequestMapping(value = "/getList", method = { RequestMethod.GET, RequestMethod.POST})
     public OperationResult getDepartmentList() {
