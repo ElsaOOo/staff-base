@@ -49,4 +49,10 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @Column(name = "create_time")
+    private Date createTime;
+
+    @Column(name = "update_time")
+    private Date updateTime;
+
 }
