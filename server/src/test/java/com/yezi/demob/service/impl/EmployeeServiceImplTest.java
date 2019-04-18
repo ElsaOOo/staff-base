@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -36,19 +37,24 @@ public class EmployeeServiceImplTest {
         String datePattern = "yyyy-MM-dd";
         SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
         department.setId(3);
-        employee.setName("Lee");
+        employee.setName("Mee");
         employee.setGender(1);
         employee.setBirthday(sdf.parse("1990-01-01"));
         employee.setJoinDate(sdf.parse("2019-01-01"));
         employee.setPhone("13876545678");
         employee.setStaffNum("89123789");
-        employee.setUserName("Lee");
+        employee.setUserName("Mee");
         employee.setDepartment(department);
         Employee saved = employeeService.addOrUpdateEmployee(employee);
-        Assert.assertEquals("Lee", saved.getName());
+        Assert.assertEquals("Mee", saved.getName());
     }
 
     @Test
     public void findEmployeeByName() {
+
+        List<Employee> employees = employeeService.findEmployeeByName("L");
+        for (Employee employee: employees) {
+            System.out.println(employee);
+        }
     }
 }

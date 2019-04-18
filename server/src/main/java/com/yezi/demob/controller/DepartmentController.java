@@ -4,10 +4,7 @@ import com.yezi.demob.entity.Department;
 import com.yezi.demob.service.DepartmentService;
 import com.yezi.demob.utils.OperationResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: yezi
@@ -23,6 +20,8 @@ public class DepartmentController {
 
     @RequestMapping(value = "/test", method = { RequestMethod.GET, RequestMethod.POST})
     public OperationResult test() {
+        // 模拟异常
+        int error = 1 / 0;
         return OperationResult.ok("hello");
     }
 
@@ -32,7 +31,7 @@ public class DepartmentController {
     }
 
     @RequestMapping(value = "/deleteById", method = { RequestMethod.GET, RequestMethod.POST})
-    public OperationResult deleteDepartmentById(int departmentId) {
+    public OperationResult deleteDepartmentById(@RequestParam(name = "departmentId", required = true) int departmentId) {
         return OperationResult.ok(departmentService.deleteDepartment(departmentId));
     }
 
